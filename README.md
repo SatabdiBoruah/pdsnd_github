@@ -12,8 +12,8 @@ In this project, we will use data provided by Motivate, a bike share system prov
 
 
 ### Files used
-- bikeshare.py
-#### Data files
+We will need the three city dataset files:
+
 - chicago.csv
 - new_york_city.csv
 - washington.csv

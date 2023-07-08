@@ -6,6 +6,8 @@ import numpy as np
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
+CITY_NAMES=CITY_DATA.keys()
+ALL_MONTHS=['all', 'january', 'february', 'march', 'april', 'may', 'june']
 #Prompting the user which city, month, and day they would like to explore
 def get_filters():
     """
@@ -21,7 +23,7 @@ def get_filters():
     # Getting user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         city = input("Select City: Chicago, New York City, Washington: ").lower()
-        if city not in ['chicago', 'new york city', 'washington']:
+        if city not in CITY_NAMES:
             print("Your selection is invalid, please try again!")
             continue
         else:
@@ -30,7 +32,7 @@ def get_filters():
     # Getting user input for month (all, january, february, ..., june)
     while True:
         month = input("Select month: All, January, February, March, April, May, or June: ").lower()
-        if month not in ['all', 'january', 'february', 'march', 'april', 'may', 'june']:
+        if month not in ALL_MONTHS:
             print('Month is invalid, please try again.')
             continue
         else:
@@ -75,7 +77,7 @@ def load_data(city, month, day):
     
     # Filtering by month
     if month.lower() != 'all':
-        months = ['january', 'february', 'march', 'april', 'may', 'june']
+        months = ALL_MONTHS[1:]
         month = months.index(month) + 1
         df = df[df['month'] == month]
     

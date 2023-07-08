@@ -6,6 +6,7 @@ import numpy as np
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
+CITY_NAMES=CITY_DATA.keys()
 ALL_MONTHS=['all', 'january', 'february', 'march', 'april', 'may', 'june']
 #Prompting the user which city, month, and day they would like to explore
 def get_filters():
@@ -22,7 +23,7 @@ def get_filters():
     # Getting user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         city = input("Select City: Chicago, New York City, Washington: ").lower()
-        if city not in ['chicago', 'new york city', 'washington']:
+        if city not in CITY_NAMES:
             print("Your selection is invalid, please try again!")
             continue
         else:
